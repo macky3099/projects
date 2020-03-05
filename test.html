@@ -1,0 +1,85 @@
+<html>
+<head>
+  <title>Your Website Title</title>
+    <!-- You can use Open Graph tags to customize link previews.
+    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+  <meta property="og:url"           content="http://www.thatsyour.com" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="This is the website title" />
+  <meta property="og:description"   content="This is the description of the website" />
+  <meta property="og:image"         content="http://www.thatsyour.com/" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+</head>
+<body>
+
+  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="https://www.thatsyour.com" 
+    data-layout="button_count">
+  </div>
+
+    <input type="button" onclick="postToFeed()" value="Share" />
+
+    <script>
+        function postToFeed() {
+    // calling the API ...
+    var obj = {
+      method: 'feed',
+      link: 'https://www.thatsyour.com/',
+      description: "description goes here",
+      picture: 'https://www.azeezkallayi.com/demo/test/womens-day.jpg',
+      name: 'International womens day'       
+    };
+     FB.ui(obj);
+   }
+    </script>
+    
+    <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '2228361364134177',
+      xfbml      : true,
+      version    : 'v2.9'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('#fbButton').click(function() {
+            FB.ui({
+                method: 'feed',
+                link: 'http://www.thatsyour.com/',
+                caption: 'An example caption',
+                
+                name: 'An example name',
+                description: 'An example description'
+            }, function(response){});
+        });
+    });
+</script>
+    
+    <button id="fbButton">Click me</button>
+    
+</body>
+</html>
