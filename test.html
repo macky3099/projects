@@ -1,1 +1,69 @@
+<html>
+<head>
+<title>This is a test page</title>
+        
+        <meta property="og:url"           content="http://thatsyour.com/test.html" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="This is the website title" />
+        <meta property="og:description"   content="This is the description of the website" />
+        <meta property="og:image"         content="https://cdn.pixabay.com/photo/2015/12/01/20/28/fall-1072821__340.jpg" />
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<button class="fb_share_btn">Hey click me</button>
+
+<script>
+// this loads the Facebook API
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    window.fbAsyncInit = function () {
+        var appId = '2228361364134177';
+        FB.init({
+            appId: appId,
+            xfbml: true,
+            version: 'v2.9'
+        });
+    };
+
+    // FB Share with custom OG data.
+    (function($) {
+
+        $('.fb_share_btn').on('click', function (event) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+
+                // Dynamically gather and set the FB share data. 
+                var FBDesc      = 'Your custom description';
+                var FBTitle     = 'Your custom title';
+                var FBLink      = 'http://thatsyour.com/test.html';
+                var FBPic       = 'https://cdn.pixabay.com/photo/2015/12/01/20/28/fall-1072821__340.jpg';
+
+                // Open FB share popup
+                FB.ui({
+                    method: 'share_open_graph',
+                    action_type: 'og.shares',
+                    action_properties: JSON.stringify({
+                        object: {
+                            'og:url': FBLink,
+                            'og:title': FBTitle,
+                            'og:description': FBDesc,
+                            'og:image': FBPic
+                        }
+                    })
+                },
+                function (response) {
+                // Action after response
+                })
+        })
+
+    })( jQuery );
+   </script>
 
