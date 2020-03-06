@@ -40,22 +40,17 @@
             event.preventDefault();
             event.stopImmediatePropagation();
 
-                // Dynamically gather and set the FB share data. 
-                var FBDesc      = 'Your custom description';
-                var FBTitle     = 'Your custom title';
-                var FBLink      = 'http://thatsyour.com/test.html';
-                var FBPic       = 'https://cdn.pixabay.com/photo/2015/12/01/20/28/fall-1072821__340.jpg';
-
+                
                 // Open FB share popup
                 FB.ui({
                     method: 'share_open_graph',
                     action_type: 'og.likes',
                     action_properties: JSON.stringify({
                         object: {
-                            'og:url': FBLink,
-                            'og:title': FBTitle,
-                            'og:description': FBDesc,
-                            'og:image': FBPic
+                            'og:url': 'http://thatsyour.com/test.html',
+                            'og:title': 'Your custom title',
+                            'og:description': 'Your custom description',
+                            'og:image': 'https://cdn.pixabay.com/photo/2015/12/01/20/28/fall-1072821__340.jpg'
                         }
                     })
                 },
