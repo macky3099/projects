@@ -1,7 +1,7 @@
 <!doctype html>   
 <html>    
 <head>  
-	<title>What is your rashi?</title>
+	<title>What is your yoyo?</title>
 	<meta charset="utf-8">
 	<meta property="fb:app_id" content="2228361364134177" />
 	<meta property="og:url" content="http://thatsyour.com/test.html" >
@@ -42,7 +42,8 @@ function shareOriginal()
 {
 	FB.ui({
 		method: 'share',
-		href: window.location.href
+		href: window.location.href,
+		quote: 'some quote goes here'
 	},
 	function (response) {
 	// Action after response
