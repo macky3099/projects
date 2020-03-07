@@ -40,6 +40,10 @@
 <script>
 function shareOriginal()
 {
+	
+	$('meta[property=description]').remove();
+	$('head').append( '<meta name="description" content="this is new">' );
+	
 	FB.ui({
 		method: 'share',
 		href: window.location.href,
