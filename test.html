@@ -42,7 +42,7 @@ function shareOriginal()
 {
 	
 	$('meta[property=description]').remove();
-	$('head').append( '<meta name="description" content="this is new">' );
+	$('head').append( '<meta property="og:description" content="this is new">' );
 	
 	FB.ui({
 		method: 'share',
