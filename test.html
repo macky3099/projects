@@ -38,12 +38,14 @@
 	
 	
 <script>
+	
+	$(document).ready(function(){
+		$('meta[property=description]').remove();
+		$('head').append( '<meta property="og:description" content="this is new">' );
+	});
+	
 function shareOriginal()
 {
-	
-	$('meta[property=description]').remove();
-	$('head').append( '<meta property="og:description" content="this is new">' );
-	
 	FB.ui({
 		method: 'share',
 		href: window.location.href,
